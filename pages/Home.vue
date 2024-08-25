@@ -3,19 +3,14 @@
     <div class="w-80 h-full pt-6">
       <h2 class="pl-6">Sam McCarthy</h2>
 
-      <div class="flex flex-col gap-1 mt-6 pl-6">
-        <p class="max-w-min py-0.5 px-3 rounded-lg cursor-pointer bg-slate-100 hover:bg-slate-200/70 duration-300">Settings</p>
-        <p class="max-w-min py-0.5 px-3 rounded-lg cursor-pointer bg-slate-100 hover:bg-slate-200/70 duration-300">Repositories</p>
+      <div class="flex flex-col gap-1 mt-6 pl-6 pr-2">
+        <p class="py-0.5 px-3 rounded cursor-pointer hover:bg-slate-100 duration-300">Settings</p>
+        <p class="py-0.5 px-3 rounded cursor-pointer hover:bg-slate-100 duration-300">Repositories</p>
       </div>
 
       <div class="flex flex-col mt-6 pl-6 pr-2">
-        <div v-for="file in projectFiles">
-          <div @click="file.showChildren = !file.showChildren" class="group flex items-center gap-1 px-2 cursor-pointer select-none rounded hover:bg-slate-100 duration-100">
-            <IconsChevron :class="[{ 'text-transparent': file.type !== 'directory' }, file.showChildren ? 'rotate-0' : '-rotate-90']" class="w-4 h-4 duration-150 invisible group-hover:visible" />
-            <p>{{ file.name }}</p>
-          </div>
-
-
+        <div v-for="menuItem in projectFiles">
+          <MenuItem :menuItem />
         </div>
       </div>
     </div>
