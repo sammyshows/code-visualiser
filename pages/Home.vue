@@ -8,11 +8,11 @@
         <p class="max-w-min py-0.5 px-3 rounded-lg cursor-pointer bg-slate-100 hover:bg-slate-200/70 duration-300">Repositories</p>
       </div>
 
-      <div class="flex flex-col mt-6 pl-6">
+      <div class="flex flex-col mt-6 pl-6 pr-2">
         <div v-for="file in projectFiles">
-          <div class="flex items-center gap-2">
-            <IconsChevron @click="file.showChildren = !file.showChildren" :class="[{ 'invisible': file.type != 'directory' }, file.showChildren ? 'rotate-0' : '-rotate-90']" class="w-4 h-4 cursor-pointer" />
-            <p>{{ file.name + file?.showChildren?.value }}</p>
+          <div @click="file.showChildren = !file.showChildren" class="group flex items-center gap-1 px-2 cursor-pointer select-none rounded hover:bg-slate-100 duration-100">
+            <IconsChevron :class="[{ 'text-transparent': file.type !== 'directory' }, file.showChildren ? 'rotate-0' : '-rotate-90']" class="w-4 h-4 duration-150 invisible group-hover:visible" />
+            <p>{{ file.name }}</p>
           </div>
 
 
@@ -33,9 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
-
-  const projectFiles = [
+  const projectFiles = ref([
     {
       name: 'assets',
       type: 'directory',
@@ -43,7 +41,7 @@ import {ref} from 'vue'
         { name: 'main.css', type: 'css' },
         { name: 'background.png', type: 'png' },
       ],
-      showChildren: ref(false)
+      showChildren: false
     },
     {
       name: 'composables',
@@ -85,5 +83,5 @@ import {ref} from 'vue'
     { name: 'tailwind.config.js', type: 'javaScript' },
     { name: '.gitignore', type: 'gitIgnore' },
     { name: 'README.md', type: 'markDown' },
-  ]
+  ])
 </script>
