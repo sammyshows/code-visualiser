@@ -2,15 +2,21 @@
 export default defineNuxtConfig({
   ssr: false,
 
+  runtimeConfig: {
+    public: {
+      AUTH_SERVICE_URL: process.env.AUTH_SERVICE_URL,
+      CODE_ANALYSIS_SERVICE_URL: process.env.CODE_ANALYSIS_SERVICE_URL,
+      DOCUMENTATION_SERVICE_URL: process.env.DOCUMENTATION_SERVICE_URL,
+    }
+  },
+
   modules: [
     '@nuxtjs/tailwindcss', '@pinia/nuxt'
   ],
 
   pinia: {
     autoImports: [
-      // automatically imports `defineStore`
-      'defineStore', // import { defineStore } from 'pinia'
-      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+      'defineStore',
     ],
   },
 

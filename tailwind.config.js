@@ -24,29 +24,6 @@ module.exports = {
         '16pc': '16%',
       },
 
-      animation: {
-        'pulse': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-rotated': 'pulseRotated 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-centered': 'pulseCentered 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-
-      keyframes: {
-        pulse: {
-          '0%, 100%': { transform: 'scale(1)', opacity: 0.9 },
-          '50%': { transform: 'scale(1.25)', opacity: 1 },
-        },
-        
-        pulseRotated: {
-          '0%, 100%': { transform: 'scale(1) rotate(90deg)', opacity: 0.9 },
-          '50%': { transform: 'scale(1.25) rotate(90deg)', opacity: 1 },
-        },
-
-        pulseCentered: {
-          '0%, 100%': { transform: 'scale(1) translateX(50%) translateY(50%)', opacity: 0.9 },
-          '50%': { transform: 'scale(1.25) translateX(50%) translateY(50%)', opacity: 1 },
-        },
-      },
-
       transitionDuration: {
         '2500': '2500ms',
         '4000': '4000ms',
@@ -81,15 +58,8 @@ module.exports = {
         '22': '5.5rem',
         '23': '5.75rem',
         '24': '6rem'
-      },
-
-      colors: {
-        'll-orange': '#ffa345'
       }
     },
-  },
-  variants: {
-    animation: ['responsive'],
   },
   plugins: [],
 }
